@@ -47,7 +47,7 @@ myButton.addEventListener("click",
         // settare le variabili a seconda del livello scelto
         switch (chooseLev){
 
-            case 0:
+            case 2:
             nCells = 49;
             classCells = "square7";
             break;
@@ -57,19 +57,9 @@ myButton.addEventListener("click",
             classCells = "square8";
             break;
 
-            case 2:
+            case 0:
             nCells = 100;
             classCells = "square10";
-            break;
-
-            case 3:
-            nCells = 400;
-            classCells = "square20";
-            break;
-
-            case 4:
-            nCells = 900;
-            classCells = "square30";
             break;
         }
 
