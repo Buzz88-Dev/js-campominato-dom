@@ -30,18 +30,6 @@
     border: solid 1px black;
 }
 
-.square20 {
-    flex-basis: calc(100% / 20);
-    height: calc(100% / 20);
-    border: solid 1px black;
-}
-
-.square30 {
-    flex-basis: calc(100% / 30);
-    height: calc(100% / 30);
-    border: solid 1px black;
-}
-
 /* sfondo square */
 .clicked-green {
     background-color: green;
