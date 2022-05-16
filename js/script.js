@@ -67,6 +67,10 @@ myButton.addEventListener("click",
         let myNewArrRandom = createRandUniqueNumArray(nCells, 1, nCells);
         console.log(myNewArrRandom);
 
+        // creo un array di 16 numeri che vanno da 1 a 49 --- sostuire poi con nCells
+        let arrayBombe = generaNumBombe(nCells);
+        console.log(arrayBombe);
+
 
         // con un for creo i elementi div tramite la chiamata della funzione createMyElement()
         // li appendo al div principale gridEl
@@ -75,8 +79,6 @@ myButton.addEventListener("click",
             // richiamo funzione di generazione div quadrato
             let divEl = createMyElement(classCells);
 
-            let arrayBombe = bombeGenerated();
-
             let arrItem = myNewArrRandom[i];
 
 
@@ -84,13 +86,13 @@ myButton.addEventListener("click",
                 function(){ 
                     divEl.append(arrItem);
                     console.log(this);
-                    for (let j = 0; j <arrayBombe.length; j++){
+                    for (let j = 0; j < arrayBombe.length; j++){
                         let bomba = arrayBombe[j];
         
-                        if(bomba[j] === divEl){
-                            console.log("Bomba presente")
+                        if (arrItem === bomba){
+                            this.classList.add("clicked-");
                         } else {
-                            console.log("Bomba non presente")
+                            this.classList.add("clicked-green");
                         }
                     }
                 }
@@ -101,22 +103,18 @@ myButton.addEventListener("click",
 )
 
 
-///////////////////////////////////////////////////
-function generaNumBomba(){
-    let bomba = Math.floor(Math.random() * 49) + 1; //sostituire 49 con nCells
-    return bomba;
-}
-
-function bombeGenerated(){
+// mi creo la funzione in cui genero un array composto da 16 numeri che vanno da 1 a nCells
+function generaNumBombe(nCells){
     let arrayBombe = [];
     for (let i = 0; i < 16; i++){
 
         while (arrayBombe.length < 16) {
-            let genero16bombe = generaNumBomba();
-            if (!arrayBombe.includes(genero16bombe)){
-                arrayBombe.push(genero16bombe);
+            let bomba = Math.floor(Math.random() * nCells) + 1; 
+            if (!arrayBombe.includes(bomba)){
+                arrayBombe.push(bomba);
             }
         }
     }
     return arrayBombe;
 }
+
