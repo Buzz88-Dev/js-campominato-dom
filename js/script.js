@@ -90,7 +90,7 @@ myButton.addEventListener("click",
                         let bomba = arrayBombe[j];
         
                         if (arrItem === bomba){
-                            this.classList.add("clicked-");
+                            this.classList.add("clicked-red");
                         } else {
                             this.classList.add("clicked-green");
                         }
