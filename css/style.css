@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#grid {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    flex-wrap: wrap;
+}
+
+/* scelta livello diffiolta */
+.square7 {
+    flex-basis: calc(100% / 7);
+    height: calc(100% / 7);
+    border: solid 1px black;
+}
+
+.square8 {
+    flex-basis: calc(100% / 8);
+    height: calc(100% / 8);
+    border: solid 1px black;
+}
+
+.square10 {
+    flex-basis: calc(100% / 10);
+    height: calc(100% / 10);
+    border: solid 1px black;
+}
+
+.square20 {
+    flex-basis: calc(100% / 20);
+    height: calc(100% / 20);
+    border: solid 1px black;
+}
+
+.square30 {
+    flex-basis: calc(100% / 30);
+    height: calc(100% / 30);
+    border: solid 1px black;
+}
+
+/* sfondo square */
+.clicked-green {
+    background-color: green;
+}
+
+.clicked-red {
+    background-color: red;
+}
