@@ -67,6 +67,7 @@ myButton.addEventListener("click",
         let myNewArrRandom = createRandUniqueNumArray(nCells, 1, nCells);
         console.log(myNewArrRandom);
 
+
         // con un for creo i elementi div tramite la chiamata della funzione createMyElement()
         // li appendo al div principale gridEl
         for (let i = 0; i < myNewArrRandom.length; i++){
@@ -74,23 +75,23 @@ myButton.addEventListener("click",
             // richiamo funzione di generazione div quadrato
             let divEl = createMyElement(classCells);
 
-            let arrItem = myNewArrRandom[i]; 
+            let arrayBombe = bombeGenerated();
+
+            let arrItem = myNewArrRandom[i];
+
 
             divEl.addEventListener("click",
-                function(){
-                    // inserisco contenuto numero nel div.square
-                    divEl.append(arrItem); 
-                    // o this.append(arrItem);
+                function(){ 
+                    divEl.append(arrItem);
                     console.log(this);
-                    //this.classList.add("clicked");
-                    // o this.className += " clicked";
+                    for (let j = 0; j <arrayBombe.length; j++){
+                        let bomba = arrayBombe[j];
         
-                    // se il valore di arrItem è pari coloro il quadrato di verde, altrimenti di rosso
-                    // possiamo usare un if normale col modulo oppure una funzione gia creata (pariOdispari)
-                    if(arrItem % 2 === 0){
-                        this.classList.add("clicked-green");
-                    } else {
-                        this.classList.add("clicked-red");
+                        if(bomba[j] === divEl){
+                            console.log("Bomba presente")
+                        } else {
+                            console.log("Bomba non presente")
+                        }
                     }
                 }
             )
@@ -98,3 +99,24 @@ myButton.addEventListener("click",
         }
     }
 )
+
+
+///////////////////////////////////////////////////
+function generaNumBomba(){
+    let bomba = Math.floor(Math.random() * 49) + 1; //sostituire 49 con nCells
+    return bomba;
+}
+
+function bombeGenerated(){
+    let arrayBombe = [];
+    for (let i = 0; i < 16; i++){
+
+        while (arrayBombe.length < 16) {
+            let genero16bombe = generaNumBomba();
+            if (!arrayBombe.includes(genero16bombe)){
+                arrayBombe.push(genero16bombe);
+            }
+        }
+    }
+    return arrayBombe;
+}
