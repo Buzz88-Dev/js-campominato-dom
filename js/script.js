@@ -106,7 +106,6 @@ myButton.addEventListener("click",
             divEl.addEventListener("click",
                 function(){ 
                     divEl.append(arrItem);
-                    console.log(this);
 
                     if(!arrayBombe.includes(arrItem)){
                         this.classList.add("clicked-green");
